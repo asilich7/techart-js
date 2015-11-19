@@ -64,12 +64,8 @@
         if (!xhr && typeof XMLHttpRequest!='undefined') {
             xhr = new XMLHttpRequest();
         }
-        debugger;
         xhr.open('GET', url, true);
-        debugger;
         xhr.setRequestHeader('Content-type', 'application/json');
-
-        debugger;
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 if(xhr.status == 200) {
@@ -196,24 +192,19 @@
         }
        var modeUpper = mode.toUpperCase();
 
-       switch (modeUpper) {
-            case (Logger.CONSOLE.name):
-                logger = new ConsoleLogger(modeUpper);
-                break;
-            case (Logger.WINDOW.name):
-                logger = new WindowLogger(modeUpper);
-                break;
-            case (Logger.ALERT.name):
-                logger = new AlertLogger(modeUpper);
-                break;
-            case (Logger.ENDPOINT.name):
-                if(url == "undefined")
-                    console.log("In case of endpoint mode please provide second [url] parameter.")
-                logger = new EndpointLogger(modeUpper, url);
-                break;
-            default :
-                console.log(mode + " is not supported. Use one of those modes ['console', 'window', 'alert', 'endpoint']")
-        }
+       if (modeUpper === Logger.CONSOLE.name) {
+           logger = new ConsoleLogger(modeUpper);
+       } else if (modeUpper === Logger.WINDOW.name) {
+           logger = new WindowLogger(modeUpper);
+       } else if (modeUpper === Logger.ALERT.name) {
+           logger = new AlertLogger(modeUpper);
+       } else if (modeUpper === Logger.ENDPOINT.name) {
+           if (url == "undefined")
+               console.log("In case of endpoint mode please provide second [url] parameter.");
+           logger = new EndpointLogger(modeUpper, url);
+       } else {
+           console.log(mode + " is not supported. Use one of those modes ['console', 'window', 'alert', 'endpoint']");
+       }
         return logger;
     };
 
