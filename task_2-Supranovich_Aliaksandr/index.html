@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/styles.css" media="screen" title="no title" charset="utf-8">
+    <title>Employee Data</title>
+  </head>
+  <body>
+
+    <div class="employee-data">
+      <div class="employee-data-header">
+        <span>Employee Data</span>
+      </div>
+
+      <div class="employee-data-rows">
+        <div class="employee-data-row">
+          <label for="fname">First Name:</label>
+          <input type="text" name="fname" value="">
+        </div>
+
+        <div class="employee-data-row">
+          <label for="lname">Last Name:</label>
+          <input type="text" name="lname" value="">
+        </div>
+
+        <div class="employee-data-row">
+          <label for="bday">Birthday date:</label>
+          <input type="text" name="bday" value="">
+        </div>
+
+        <div class="employee-data-row">
+          <label for="gender">Gender:</label>
+          <select name="gender">
+            <option value=""></option>
+            <option value="m">Male</option>
+            <option value="w">Female</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="employee-data-footer">
+          <button value="cancel">Cancel</button>
+          <button value="save">Save</button>
+      </div>
+
+    </div>
+
+    <div class="employee-data-legend">
+        <div>
+          <h3>Legend:</h3>
+        </div>
+
+        <div> - Text inputs log info message onchange</div>
+        <div> - Gender select logs warn message onchange</div>
+        <div> - Clicking on 'Cancel' button logs error message</div>
+        <div> - Clicking on 'Save' button throws exception</div>
+    </div>
+
+    <script data-main="js/app" src="js/require.js"></script>
+
+  </body>
+</html>
